@@ -1,0 +1,75 @@
+
+.currentConversation{
+    width: 80vw;
+    height: 100vh; 
+    background-color :rgba(151, 133, 186, 0.2);
+}
+.heading{
+    font-family: var(--font-family);
+    color: var(--primary-color);
+    margin: 10px;
+}
+.subHeading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.grid-item{
+    background-color: rgba(255, 255, 255, 1);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 3px 3px 3px gray;
+    border: none;
+    transition: transform 0.7s ease, box-shadow 0.3s ease;
+}
+.grid-item h4{
+   font-family: var(--font-family);
+   font-weight: 700;
+}
+.grid-item :hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.grid-item span{
+    font-family: Open Sans;
+    font-weight: 400;
+}
+
+
+
+
+
+.inputField{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.inputField input {
+    width: 800px;
+    height: 8vh;
+    border-radius: 8px;
+    border: 1px solid grey;
+    padding: 5px;
+}
+.inputField button{
+    background-color: var(--secondary-color);
+    font-family: var(--font-family);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 80px;
+}
+
+
