@@ -3,11 +3,14 @@ import './ShowPastConversation.css';
 import SideBar from '../SideBar/SideBar';
 import botLogo from '../../Assets/bot-logo.png';
 import userLogo from '../../Assets/user-logo.png';
-// import Feedback from '../FeedbackModal/Feedback';
+import Ratings from '../RatingsCard/Ratings';
+
 
 
 const ShowPastConversation = ({reset}) => {
 const [convDetails, setConvDetails] = useState([]);
+// console.log('index-1', typeof convDetails[1][0].ratings)
+
 
 
 
@@ -41,9 +44,15 @@ return (
               <h4>Soul AI</h4>
               <h4>{details.answer}</h4>
               <p>{details.time}  {' '}
-              {details.suggestion && <span style={{fontWeight:'bold'}}> - Feedback: {details.suggestion}</span>}
+              {details.suggestion && <span style={{fontWeight:'bold'}}> - Feedback: </span>} 
+              {details.suggestion}
               </p>
+              { details.ratings > 0 && <p>{details.ratings}⭐ </p>} 
               
+              {/* {details.ratings > 0 && (
+              <Ratings value={details.ratings} readOnly={true} />
+              )} */}
+
             </div>
             </div>
           </div>
