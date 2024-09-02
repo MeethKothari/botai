@@ -71,27 +71,46 @@ if (conversation.length > 0){
 const findAnswer = (question) => {
   let answerFound = sampleData.find((item) => 
     item.question.toLocaleLowerCase() === question.toLocaleLowerCase());
+  
 
-  setConversation((prev) => {
+  setConversation((prev) => {  // this is like dummy ans as typing.... before answer is generated.
     let updatedConversation = [...prev];
-    let lastConversation = updatedConversation[updatedConversation.length-1];
+    let lastConversation = updatedConversation[updatedConversation.length - 1];
 
-    if(answerFound){
-      lastConversation = {
-        ...lastConversation, 
-        answer: answerFound.response
-      }
-    }
-    else {
-      lastConversation = {
-        ...lastConversation, 
-        answer: `sorry, I dont have an answer to that question...`
-      }
-    }
+    lastConversation = {
+      ...lastConversation,
+      answer: "typing...."
+    };
 
-    updatedConversation[updatedConversation.length-1] = lastConversation;
+    updatedConversation[updatedConversation.length - 1] = lastConversation;
     return updatedConversation;
-  })
+  });
+
+
+
+  setTimeout(()=>{  // to delay the answer and show as bot is typing
+    setConversation((prev) => {
+      let updatedConversation = [...prev];
+      let lastConversation = updatedConversation[updatedConversation.length-1];
+  
+      if(answerFound){
+        lastConversation = {
+          ...lastConversation, 
+          answer: answerFound.response
+        }
+      }
+      else {
+        lastConversation = {
+          ...lastConversation, 
+          answer: `sorry, I dont have an answer to that question...`
+        }
+      }
+  
+      updatedConversation[updatedConversation.length-1] = lastConversation;
+      return updatedConversation;
+    })
+  },1500)
+  
 };
 
 
